@@ -1,4 +1,4 @@
-import type { Message } from "../types";
+import type { Message, NewMessage } from "../types";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const TOKEN = import.meta.env.VITE_TOKEN;
@@ -19,4 +19,16 @@ export async function getMessages(after?: string, before?: string, limit = 20) {
 		throw new Error("Failed to fetch messages");
 	}
 	return (await response.json()) as Message[];
+}
+
+export async function sendMessage(message: NewMessage) {
+	const response = await fetch(`${API_URL}/messages`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${TOKEN}`,
+		},
+		body: JSON.stringify(message),
+	});
+	return response.json();
 }
