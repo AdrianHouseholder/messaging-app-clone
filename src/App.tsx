@@ -1,33 +1,18 @@
 import "./App.css";
-import { useCallback, useEffect, useState } from "react";
-import { getMessages, sendMessage } from "./api";
-import type { Message } from "./types";
-
-const AUTHOR = "Adrian Ruiz Householder";
+import { useState } from "react";
+import { useMessages } from "./hooks";
 
 function App() {
-	const [messages, setMessages] = useState<Message[]>([]);
 	const [text, setText] = useState<string>("");
 
-	const loadMessages = useCallback(async () => {
-		const messages: Message[] = await getMessages();
-		setMessages(messages);
-	}, []);
+	const { messages, isLoading, sendMessage } = useMessages();
 
-	const newMessage = useCallback(
-		async (message: string) => {
-			await sendMessage({
-				message: message,
-				author: AUTHOR,
-			});
-			void loadMessages();
-		},
-		[loadMessages],
-	);
-
-	useEffect(() => {
-		void loadMessages();
-	}, [loadMessages]);
+	const handleSend = () => {
+		if (text.trim()) {
+			void sendMessage(text);
+			setText("");
+		}
+	};
 
 	return (
 		<>
@@ -40,7 +25,7 @@ function App() {
 				</div>
 			))}
 			<input value={text} onChange={(e) => setText(e.target.value)} />
-			<button type="button" onClick={() => newMessage(text)}>
+			<button type="button" onClick={() => handleSend()} disabled={isLoading}>
 				Send
 			</button>
 		</>
