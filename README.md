@@ -42,4 +42,12 @@ To format my code, I've used Biome. You can run the formatter with the following
   bun biome format
 ```
 
+## API & Environment Variables
+
+Environment variables are stored in an .env.local file with the following configuration:
+
+```
+VITE_API_URL=
+VITE_TOKEN=
+```
 
