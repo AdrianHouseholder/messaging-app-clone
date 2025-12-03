@@ -34,5 +34,12 @@ If on Windows:
   bun dev
 ```
 
+## Linter / Formatter
+
+To format my code, I've used Biome. You can run the formatter with the following command:
+
+```bash
+  bun biome format
+```
 
 
