@@ -1,19 +1,16 @@
 import styles from "./MessagesScreen.module.css";
-import type { MessagesScreenProps } from "./MessagesScreen.types";
 import { useMessagesContext } from "@contexts";
+import MessageBox from "../../atoms/MessageBox/MessageBox.tsx";
 
-const MessagesScreen: React.FC<MessagesScreenProps> = () => {
+const MessagesScreen: React.FC = () => {
 	const { messages } = useMessagesContext();
 	return (
 		<div className={styles.root}>
-			{messages.map((message) => (
-				<div key={message._id}>
-					<span>{message._id}</span>
-					<span>{message.author}</span>
-					<span>{message.createdAt}</span>
-					<span>{message.message}</span>
-				</div>
-			))}
+			<div className={styles.messages}>
+				{messages.map((message) => (
+					<MessageBox message={message} key={message._id} />
+				))}
+			</div>
 		</div>
 	);
 };

@@ -49,5 +49,10 @@ Environment variables are stored in an .env.local file with the following config
 ```
 VITE_API_URL=
 VITE_TOKEN=
+VITE_AUTHOR=
 ```
+
+- `VITE_API_URL`: The base URL for the API endpoints.
+- `VITE_TOKEN`: The authentication token for API requests.
+- `VITE_AUTHOR`: The author's name for message ownership.
 

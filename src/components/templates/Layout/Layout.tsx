@@ -1,8 +1,7 @@
 import styles from "./Layout.module.css";
-import type { LayoutProps } from "./Layout.types";
 import { MessageFooter, MessagesScreen } from "@/components";
 
-const Layout: React.FC<LayoutProps> = () => {
+const Layout: React.FC = () => {
 	return (
 		<div className={styles.root}>
 			<MessagesScreen />
