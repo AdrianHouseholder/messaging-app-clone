@@ -1,9 +1,8 @@
 import styles from "./MessageFooter.module.css";
-import type { MessageFooterProps } from "./MessageFooter.types";
 import { useMessagesContext } from "@contexts";
 import { useState } from "react";
 
-const MessageFooter: React.FC<MessageFooterProps> = () => {
+const MessageFooter: React.FC = () => {
 	const { sendMessage, isLoading } = useMessagesContext();
 
 	const [text, setText] = useState("");
