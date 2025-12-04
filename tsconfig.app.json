@@ -7,16 +7,28 @@
 		"module": "ESNext",
 		"types": ["vite/client"],
 		"skipLibCheck": true,
-
-		/* Bundler mode */
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"],
+			"@styles/*": ["src/styles/*"],
+			"@styles": ["src/styles"],
+			"@contexts/*": ["src/contexts/*"],
+			"@contexts": ["src/contexts"],
+			"@components/*": ["src/components/*"],
+			"@components": ["src/components"],
+			"@hooks/*": ["src/hooks/*"],
+			"@hooks": ["src/hooks"],
+			"@types/*": ["src/types/*"],
+			"@types": ["src/types"],
+			"@utils/*": ["src/utils/*"],
+			"@utils": ["src/utils"]
+		},
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
 		"verbatimModuleSyntax": true,
 		"moduleDetection": "force",
 		"noEmit": true,
 		"jsx": "react-jsx",
-
-		/* Linting */
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,

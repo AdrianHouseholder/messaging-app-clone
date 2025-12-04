@@ -52,6 +52,5 @@ export function useMessages() {
 		isLoading,
 		error,
 		sendMessage: sendNewMessage,
-		refreshMessages: loadMessages,
 	};
 }
