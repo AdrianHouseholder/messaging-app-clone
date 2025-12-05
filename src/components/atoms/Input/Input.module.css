@@ -1,0 +1,20 @@
+input {
+	all: unset;
+	cursor: text;
+	caret-color: #1c8fca;
+	background: #f0f0f0;
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid #1c8fca;
+	width: 100%;
+}
+
+input::placeholder {
+	color: #cacaca;
+}
+
+input:focus,
+input:hover {
+	border-color: #1c6f9a;
+	box-shadow: 0 0 3px #1c8fca;
+}
