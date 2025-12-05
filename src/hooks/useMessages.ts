@@ -1,13 +1,14 @@
 import { useState, useCallback, useEffect } from "react";
 import { getMessages, sendMessage } from "../api";
 import type { Message } from "../types";
+import type { ErrorTypes } from "@contexts";
 
 const AUTHOR = import.meta.env.VITE_AUTHOR;
 
 export function useMessages() {
 	const [messages, setMessages] = useState<Message[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
-	const [error, setError] = useState<Error | null>(null);
+	const [error, setError] = useState<ErrorTypes | null>(null);
 
 	const loadMessages = useCallback(async () => {
 		setIsLoading(true);
@@ -16,9 +17,7 @@ export function useMessages() {
 			const fetchedMessages = await getMessages(undefined, currentTime, 50);
 			setMessages(fetchedMessages);
 		} catch (err) {
-			setError(
-				err instanceof Error ? err : new Error("Failed to load messages"),
-			);
+			setError(err instanceof Error ? (err.message as ErrorTypes) : "UNKNOWN");
 		} finally {
 			setIsLoading(false);
 		}
@@ -35,7 +34,7 @@ export function useMessages() {
 				await loadMessages();
 			} catch (err) {
 				setError(
-					err instanceof Error ? err : new Error("Failed to send message"),
+					err instanceof Error ? (err.message as ErrorTypes) : "UNKNOWN",
 				);
 			} finally {
 				setIsLoading(false);

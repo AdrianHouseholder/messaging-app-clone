@@ -3,10 +3,12 @@ import type { ReactNode } from "react";
 import { useMessages } from "../hooks";
 import type { Message } from "../types";
 
+export type ErrorTypes = "UNAUTHORIZED" | "SERVICE_UNAVAILABLE" | "UNKNOWN";
+
 export type MessagesContextType = {
 	messages: Message[];
 	isLoading: boolean;
-	error: Error | null;
+	error: ErrorTypes | null;
 	sendMessage: (text: string) => Promise<void>;
 };
 
