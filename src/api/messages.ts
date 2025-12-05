@@ -8,15 +8,16 @@ export async function getMessages(after?: string, before?: string, limit = 20) {
 	if (after) params.append("after", after);
 	if (before) params.append("before", before);
 	params.append("limit", limit.toString());
-
 	const response = await fetch(`${API_URL}/messages?${params.toString()}`, {
 		headers: {
 			Authorization: `Bearer ${TOKEN}`,
 		},
 	});
-
-	if (response.status !== 200) {
-		throw new Error("Failed to fetch messages");
+	if (response.status === 401) {
+		throw new Error("UNAUTHORIZED");
+	}
+	if (response.status === 404) {
+		throw new Error("SERVICE_UNAVAILABLE");
 	}
 	return (await response.json()) as Message[];
 }
@@ -30,5 +31,11 @@ export async function sendMessage(message: NewMessage) {
 		},
 		body: JSON.stringify(message),
 	});
+	if (response.status === 401) {
+		throw new Error("UNAUTHORIZED");
+	}
+	if (response.status === 404) {
+		throw new Error("SERVICE_UNAVAILABLE");
+	}
 	return response.json();
 }
