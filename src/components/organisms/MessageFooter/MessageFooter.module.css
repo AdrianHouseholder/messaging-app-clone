@@ -1,8 +1,29 @@
 .root {
 	display: flex;
+	gap: 8px;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 	height: 60px;
-	background: red;
+	background: #1c8fca;
+}
+
+.input {
+	max-width: 640px;
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 60px;
+	background: #1c8fca;
+	padding: 8px 24px;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+	.input {
+		padding: 8px;
+	}
 }

@@ -1,22 +1,26 @@
 import styles from "./MessageFooter.module.css";
 import { useMessagesContext } from "@contexts";
 import { useState } from "react";
+import { Button, Input } from "@/components";
+import { useScrollTo } from "@hooks";
 
 const MessageFooter: React.FC = () => {
-	const { sendMessage, isLoading } = useMessagesContext();
-
+	const { sendMessage } = useMessagesContext();
+	const scrollTo = useScrollTo("messages-screen", 200);
 	const [text, setText] = useState("");
 	const handleSend = async () => {
 		await sendMessage(text);
 		setText("");
+		setTimeout(() => {
+			scrollTo();
+		}, 100);
 	};
-
 	return (
 		<div className={styles.root}>
-			<input value={text} onChange={(e) => setText(e.target.value)} />
-			<button type="button" onClick={() => handleSend()} disabled={isLoading}>
-				Send
-			</button>
+			<div className={styles.input}>
+				<Input value={text} onChange={setText} onEnterKeyUp={handleSend} />
+				<Button text={"Send"} onClick={handleSend} />
+			</div>
 		</div>
 	);
 };

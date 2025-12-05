@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import { getMessages, sendMessage } from "../api";
 import type { Message } from "../types";
 
-const AUTHOR = "Me";
+const AUTHOR = import.meta.env.VITE_AUTHOR;
 
 export function useMessages() {
 	const [messages, setMessages] = useState<Message[]>([]);
@@ -12,7 +12,8 @@ export function useMessages() {
 	const loadMessages = useCallback(async () => {
 		setIsLoading(true);
 		try {
-			const fetchedMessages = await getMessages();
+			const currentTime = new Date().toISOString();
+			const fetchedMessages = await getMessages(undefined, currentTime, 50);
 			setMessages(fetchedMessages);
 		} catch (err) {
 			setError(
