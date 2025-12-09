@@ -1,4 +1,4 @@
-import type { ErrorTypes } from "@contexts";
+import type { ErrorTypes } from "@types";
 
 export interface ErrorBoxProps {
 	error: ErrorTypes | null;

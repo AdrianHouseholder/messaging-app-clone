@@ -3,13 +3,16 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
+	height: 100%;
 	overflow-y: auto;
 }
 
 .messages {
+	overflow-y: auto;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	width: 100%;
+	height: 100%;
 	gap: 16px;
 	align-items: center;
 	max-width: 640px;

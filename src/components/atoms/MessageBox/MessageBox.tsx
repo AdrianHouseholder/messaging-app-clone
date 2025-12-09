@@ -13,7 +13,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ message }) => {
 				{!isMe && <span className={styles.author}>{message.author}</span>}
 				<span>{message.message}</span>
 				<span className={styles.timestamp}>
-					{`${dayjs(message.createdAt).format("d MMM YYYY HH:mm")}`}
+					{`${dayjs(message.createdAt).format("D MMM YYYY HH:mm")}`}
 				</span>
 			</div>
 		</div>
