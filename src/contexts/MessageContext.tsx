@@ -1,15 +1,15 @@
 import { createContext, useContext } from "react";
 import type { ReactNode } from "react";
-import { useMessages } from "../hooks";
-import type { Message } from "../types";
-
-export type ErrorTypes = "UNAUTHORIZED" | "SERVICE_UNAVAILABLE" | "UNKNOWN";
+import { useMessages } from "@/hooks";
+import type { ErrorTypes, Message } from "@/types";
 
 export type MessagesContextType = {
 	messages: Message[];
 	isLoading: boolean;
 	error: ErrorTypes | null;
 	sendMessage: (text: string) => Promise<void>;
+	loadMessages: () => Promise<void>;
+	canLoadMore: boolean;
 };
 
 const MessagesContext = createContext<MessagesContextType | undefined>(

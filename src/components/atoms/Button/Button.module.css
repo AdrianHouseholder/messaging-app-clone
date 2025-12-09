@@ -11,3 +11,19 @@ button {
 button:hover {
 	background: #e6675c;
 }
+
+button.secondary {
+	background: #4a4a4a;
+	color: #d0d6cd;
+}
+
+button.floating {
+	position: fixed;
+	bottom: 80px;
+	right: 24px;
+	z-index: 10;
+}
+
+button.floating:hover {
+	background: #3a3a3a;
+}
