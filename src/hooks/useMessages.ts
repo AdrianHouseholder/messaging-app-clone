@@ -4,7 +4,7 @@ import type { ErrorTypes, Message } from "@/types";
 import dayjs from "dayjs";
 
 const AUTHOR = import.meta.env.VITE_AUTHOR;
-const LIMIT = 20;
+const LIMIT = 10;
 
 export function useMessages() {
 	const [canLoadMore, setCanLoadMore] = useState(true);

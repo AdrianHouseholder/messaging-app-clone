@@ -17,4 +17,5 @@
 	align-items: center;
 	max-width: 640px;
 	padding: 16px 24px;
+	position: relative;
 }

@@ -7,7 +7,6 @@ export function useIsVisible(ref: RefObject<HTMLDivElement | null>) {
 	useEffect(() => {
 		if (!ref || !ref.current) return;
 		const observer = new IntersectionObserver(([entry]) => {
-			console.log("is intersecting:", entry.isIntersecting);
 			setIntersecting(entry.isIntersecting);
 		});
 
