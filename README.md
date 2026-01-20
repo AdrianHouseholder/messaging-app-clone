@@ -1,17 +1,19 @@
 # Frontend messaging app challenge Adrián Ruiz Householder
 
+***This project depends on a REST API that was provided by a hiring process for Doodle and does not work standalone.***
+
 ## Initial Setup
 
 To set up the project locally, follow these steps:
 
 1. Clone the repository:
 ```bash
-  git clone https://github.com/AdrianHouseholder/doodle-hiring-challenge
+  git clone https://github.com/AdrianHouseholder/messaging-app-clone
 ````
 
 2. Navigate to the project directory:
 ```bash
-  cd doodle-hiring-challenge
+  cd messaging-app-clone
 ```
 
 3. Install Bun if you don't have it already. You can find the installation instructions at [https://bun.sh/](https://bun.sh/).
