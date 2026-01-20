@@ -1,6 +1,4 @@
-# Frontend challenge Adrián Ruiz Householder
-
-This repository contains the code for the frontend challenge as part of the application process at Doodle.
+# Frontend messaging app challenge Adrián Ruiz Householder
 
 ## Initial Setup
 
